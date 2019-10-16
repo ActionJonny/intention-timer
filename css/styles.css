@@ -1,0 +1,86 @@
+.heading {
+  background-color: rgb(70,66,77);
+  color: #C0C0C0;
+  font-size: 20px;
+  margin: 0px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.activitySection {
+  display: flex;
+  flex-direction: row;
+}
+
+.meditateButton {
+  margin: 0 25px;
+}
+
+.newActivityHeader,
+.pastActivityHeader {
+  color: rgb(186, 183, 191);
+  font-size: 20px;
+  padding: 15px 0px;
+}
+
+.pastActivityArticle,
+.selectCategoryArticle {
+  background-color: rgb(43, 38, 51);
+  padding: 15px 50px;
+}
+
+.pastActivityArticle {
+  flex-grow: 1;
+  margin-left: 1px;
+}
+
+.pastActivityParagraph {
+  color: rgb(186, 183, 191);
+  font-size: 14px;
+  text-align: center;
+}
+
+.selectCategory {
+  padding-bottom: 15px;
+}
+
+.selectCategoryArticle {
+  flex-grow: 2;
+  margin-right: 1px;
+}
+
+.selectCategoryDiv {
+  background-color: rgb(70, 66, 77);
+  border-radius: 5px;
+  color: rgb(186, 183, 191);
+  padding: 25px;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(70, 66, 77);
+  font-family: sans-serif;
+}
+
+img {
+  height: 35px;
+  width: 35px;
+}
+
+li {
+  align-items: center;
+  border: solid;
+  border-color: rgb(186, 183, 191);
+  border-radius: 5px;
+  border-width: 2px;
+  display: flex;
+  flex: 50px;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 5px;
+}
+
+ol {
+  display: flex;
+}
