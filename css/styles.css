@@ -1,11 +1,13 @@
 .heading {
   background-color: rgb(70,66,77);
   color: #C0C0C0;
-  font-size: 20px;
-  margin: 0px;
+  font-size: 24px;
   padding: 20px;
-  position: relative;
   text-align: center;
+}
+
+.accomplishParagraph {
+  margin-top: 35px;
 }
 
 .activitySection {
@@ -14,20 +16,32 @@
 }
 
 .meditateButton {
-  margin: 0 25px;
+  margin: 0 50px;
+}
+
+.minutes {
+  flex: 250px;
+  flex-grow: 1;
+  margin-right: 35px;
+}
+
+.minutesSecondsDiv {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
 }
 
 .newActivityHeader,
 .pastActivityHeader {
   color: rgb(186, 183, 191);
-  font-size: 20px;
+  font-size: 24px;
   padding: 15px 0px;
 }
 
 .pastActivityArticle,
 .selectCategoryArticle {
   background-color: rgb(43, 38, 51);
-  padding: 15px 50px;
+  padding: 20px 35px 50px 35px;
 }
 
 .pastActivityArticle {
@@ -39,6 +53,12 @@
   color: rgb(186, 183, 191);
   font-size: 14px;
   text-align: center;
+}
+
+.seconds {
+  flex: 250px;
+  flex-grow: 1;
+  margin-left: 35px;
 }
 
 .selectCategory {
@@ -54,18 +74,52 @@
   background-color: rgb(70, 66, 77);
   border-radius: 5px;
   color: rgb(186, 183, 191);
-  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 35px 75px;
 }
 
 body {
-  margin: 0;
   background-color: rgb(70, 66, 77);
   font-family: sans-serif;
+  overflow: hidden;
+}
+
+button {
+  align-self: flex-end;
+  background-color: rgb(241, 241, 241);
+  border-radius: 5px;
+  color: rgb(70, 66, 77);
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  height: 45px;
+  margin-top: 50px;
+  width: 150px;
+}
+
+button:focus {
+  outline: none;
 }
 
 img {
   height: 35px;
   width: 35px;
+}
+
+input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgb(241, 241, 241);
+  caret-color: rgb(241, 241, 241);
+  color: rgb(241, 241, 241);
+  font-size: 16px;
+  margin-top: 10px;
+  width: -webkit-fill-available;
+}
+
+input:focus {
+  outline: none;
 }
 
 li {
@@ -78,9 +132,14 @@ li {
   flex: 50px;
   flex-direction: column;
   flex-grow: 1;
-  padding: 5px;
+  padding: 10px;
 }
 
 ol {
   display: flex;
+}
+
+p {
+  padding: 15px 0px;
+  font-size: 18px;
 }
