@@ -8,39 +8,57 @@
   </head>
   <body>
     <header class="heading">INTENTION TIMER</header>
-    <section class="activitySection">
-      <article class="selectCategoryArticle">
-        <header class="newActivityHeader">New Activity</header>
-        <div class="selectCategoryDiv">
-          <p class="selectCategory">Select a category:</p>
-          <ol>
-            <li><img src="assets/study.png" alt="Study Image">Study</li>
-            <li class="meditateButton"> <img src="assets/meditate.png" alt="Meditate Image">Meditate</li>
-            <li><img src="assets/exercise.png" alt="Exercise Image">Exercise</li>
-          </ol>
-          <p class="accomplishParagraph">What would you like to accomplish during this time?</p>
-          <input type="" name="" value="">
-          <div class="minutesSecondsDiv">
-            <div class="minutes">
-              <p>Minutes</p>
-              <input type="text" name="" value="">
-            </div>
-            <div class="seconds">
-              <p>Seconds</p>
-              <input type="text" name="" value="">
+    <section class="activity-section">
+      <article class="select-activity-article">
+        <header class="activity-header">New Activity</header>
+        <div class="select-category-div">
+          <p class="select-category">Select a category:</p>
+          <div class="select-category-list-div">
+            <ol class="select-category-list">
+              <li class="select-category-list-items" id="study">Study</li>
+              <li class="select-category-list-items" id="meditate">Meditate</li>
+              <li class="select-category-list-items" id="exercise">Exercise</li>
+            </ol>
+          </div>
+          <p class="accomplish-description">What would you like to accomplish during this time?</p>
+          <div class="description-div">
+            <input id="description" type="text" spellcheck="true" required="true">
+          </div>
+          <div class="minutes-seconds-container">
+            <div class="minutes-seconds-div">
+              <div class="minutes-div">
+                <p class="time-paragraph">Minutes</p>
+                <input class="minutes-seconds-input" id="minutes" placeholder="0">
+              </div>
+              <div class="seconds-div">
+                <p class="time-paragraph">Seconds</p>
+                <input class="minutes-seconds-input" id="seconds" type="number" placeholder="00" max="60" min="00">
+              </div>
             </div>
           </div>
-          <button type="button" name="button">Start Activity</button>
+          <button class="start-activity-button" name="button">Start Activity</button>
         </div>
       </article>
-      <article class="pastActivityArticle">
-        <header class="pastActivityHeader">Past Activities</header>
-        <p class="pastActivityParagraph">
+      <article class="past-activity-article">
+        <div class="past-activity-and-filter">
+          <header class="activity-header">Past Activities</header>
+          <ol class="filter-list">
+            <button id="filter-favorite-button" class="filter-list-buttons">Favorite</button>
+            <button id="filter-study-button" class="filter-list-buttons">Study</button>
+            <button id="filter-meditate-button" class="filter-list-buttons">Meditate</button>
+            <button id="filter-exercise-button" class="filter-list-buttons">Exercise</button>
+          </ol>
+        </div>
+        <p class="past-activity-paragraph display-none">
           You haven't logged any activities yet.
           <br>
           Complete the form to the left to get started.
         </p>
+        <ol class="past-activity-card-container">
+        </ol>
       </article>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
