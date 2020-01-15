@@ -87,7 +87,7 @@ const timerCheck = (activity, timer, minutes, seconds) => {
     window.clearInterval(timer);
   };
 
-  if (seconds <= 0 && timerText === 'Pause') {
+  if (seconds === 0 && timerText === 'Pause') {
     seconds = 59;
     minutes--;
     $('.current-activity-h2').remove();
@@ -96,7 +96,7 @@ const timerCheck = (activity, timer, minutes, seconds) => {
     seconds--;
     $('.current-activity-h2').remove();
     appendCurrentActivityTimer(minutes, seconds);
-  }
+  };
 
   if (seconds <= 0 && minutes <= 0) {
     $('.start-timer-button')[0].disabled = true;
@@ -174,7 +174,9 @@ const appendPastActivity = activity => {
       <div id="past-activity-card-bar" class="past-activity-card-${ activity._category }"></div>
       <button id="favorite-activity-button" class="favorite-activity-icon-${ activity.favorite }"></button>
       <h1 class="past-activity-card-category">${ capitalizeCategory }</h1>
-      <h2 class="date-of-activity">${ new Date(activity.id).getMonth() + 1 }/${ new Date(activity.id).getDate() }/${ new Date(activity.id).getFullYear() } </h2>
+      <h2 class="date-of-activity">
+        ${ new Date(activity.id).getMonth() + 1 }/${ new Date(activity.id).getDate() }/${ new Date(activity.id).getFullYear() }
+      </h2>
       <h3 class="past-activity-card-time">${ activity.minutes}  MIN ${ activity.seconds } SECONDS</h3>
       <h4 class="past-activity-card-description">${ activity._description }</h4>
       <div class="removeAndMoreInfoButtons">
@@ -258,7 +260,7 @@ const checkCategory = category => {
     } else {
       resolve(true);
     };
-  })
+  });
 };
 
 const checkDescription = description => {
@@ -296,10 +298,10 @@ const checkForRequiredFields = async (category, description, minutes, seconds) =
 
   if(categoryChecked && descriptionChecked && timeChecked) {
     const activity = new Activity(category.id, description, minutes, seconds);
-    appendCurrentActivity(activity)
+    appendCurrentActivity(activity);
     clearActivityFields();
-  }
-}
+  };
+};
 
 const grabActivity = () => {
   const category = $('li.current')[0];
@@ -358,7 +360,7 @@ const appendFilteredCards = (localStorageArray, filteredCards, activityFilterCat
       appendPastActivity(activity);
     });
   };
-}
+};
 
 const filteredItems = activityFilterCategory => {
   let arr = [];
