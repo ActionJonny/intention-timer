@@ -247,35 +247,59 @@ const appendCurrentActivity = activity => {
   appendCurrentActivityTimer(minutes, seconds);
 };
 
-const checkForRequiredFields = (category, description, minutes, seconds) => {
-  if(category) {
-    $('.category-error').remove();
-    if(description.length > 0) {
-      $('.description-error').remove();
-      if(minutes.length > 0 || seconds.length > 0) {
-        $('.timer-error').remove();
-        let activity = new Activity(category.id, description, minutes, seconds);
-        appendCurrentActivity(activity)
-        clearActivityFields();
-      } else {
-        $('.timer-error').remove();
-        $('.minutes-seconds-container').append(`
-          <h4 class="timer-error">You need to have time for your activity to start.</h4>
-        `);
-      };
+const checkCategory = category => {
+  $('.category-error').remove();
+
+  return new Promise((resolve, reject) => {
+    if (!category) {
+      $('.select-category-list-div').append(`
+        <h4 class="category-error">You need to select a category.</h4>
+      `);
     } else {
-      $('.description-error').remove();
+      resolve(true);
+    };
+  })
+};
+
+const checkDescription = description => {
+  $('.description-error').remove();
+
+  return new Promise((resolve, reject) => {
+    if (description.length <= 0) {
       $('.description-div').append(`
         <h4 class="description-error">You need to add a description to your activity.</h4>
       `);
+    } else {
+      resolve(true);
     };
-  } else {
-    $('.category-error').remove();
-    $('.select-category-list-div').append(`
-      <h4 class="category-error">You need to select a category.</h4>
-    `);
-  };
+  });
 };
+
+const checkTime = (minutes, seconds) => {
+  $('.timer-error').remove();
+
+  return new Promise((resolve, reject) => {
+    if (minutes.length === 0 && seconds.length === 0) {
+      $('.minutes-seconds-container').append(`
+        <h4 class="timer-error">You need to have time for your activity to start.</h4>
+      `);
+    } else {
+      resolve(true);
+    };
+  });
+};
+
+const checkForRequiredFields = async (category, description, minutes, seconds) => {
+  let categoryChecked = await checkCategory(category);
+  let descriptionChecked = await checkDescription(description);
+  let timeChecked = await checkTime(minutes, seconds);
+
+  if(categoryChecked && descriptionChecked && timeChecked) {
+    const activity = new Activity(category.id, description, minutes, seconds);
+    appendCurrentActivity(activity)
+    clearActivityFields();
+  }
+}
 
 const grabActivity = () => {
   const category = $('li.current')[0];
